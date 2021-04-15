@@ -13,7 +13,7 @@ import 'package:yemini_app/StartingPage.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(StartingPage());
+    await tester.pumpWidget(Login());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
