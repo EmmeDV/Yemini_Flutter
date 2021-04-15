@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 import './Widgets/RText.dart';
 
@@ -8,11 +9,15 @@ class StartingPage extends StatefulWidget {
 }
 
 class _StartingPageState extends State<StartingPage> {
+  Size screenSize() {
+    return MediaQuery.of(context).size;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
@@ -24,7 +29,7 @@ class _StartingPageState extends State<StartingPage> {
             ),
           ),
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 50),
             child: Column(
               children: [
                 Container(
@@ -34,10 +39,50 @@ class _StartingPageState extends State<StartingPage> {
                     size: 27,
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 300),
-                  child: TextField(),
-                )
+                Expanded(
+                  child: Align(
+                    alignment: FractionalOffset.bottomCenter,
+                    child: Container(
+                      height: screenSize().height / 4,
+                      width: screenSize().width / 1.2,
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.transparent),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          ElevatedButton(
+                            child: RText('Accedi'),
+                            onPressed: null,
+                            style: ButtonStyle(
+                              padding: MaterialStateProperty.all(
+                                EdgeInsets.symmetric(
+                                  horizontal: screenSize().width / 3 - 5,
+                                ),
+                              ),
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.white),
+                            ),
+                          ),
+                          ElevatedButton(
+                            child: RText('Registrati'),
+                            onPressed: null,
+                            style: ButtonStyle(
+                              padding: MaterialStateProperty.all(
+                                EdgeInsets.symmetric(
+                                  horizontal: screenSize().width / 3 - 15,
+                                ),
+                              ),
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

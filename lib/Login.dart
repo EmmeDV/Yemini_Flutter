@@ -8,30 +8,28 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.black54,
-                Colors.white,
-              ],
-            ),
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Colors.black54,
+              Colors.white,
+            ],
           ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-            child: Column(
-              children: [
-                Text('Yemini'),
-                Padding(
-                  padding: EdgeInsets.only(top: 300),
-                  child: TextField(),
-                )
-              ],
-            ),
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+          child: Column(
+            children: [
+              Text('Yemini'),
+              Padding(
+                padding: EdgeInsets.only(top: 300),
+                child: TextField(),
+              )
+            ],
           ),
         ),
       ),
